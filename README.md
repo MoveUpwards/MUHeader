@@ -22,6 +22,10 @@
 MUHeader provides a reusable component to show a title and detail label with `UIAppearance` customization
 </p>
 
+<p align="center">
+<img src="./MUHeader.png" alt="screenshot">
+</p>
+
 ## Features
 
 - [x] UIAppearance customization

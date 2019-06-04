@@ -142,6 +142,7 @@ open class MUHeader: UIView {
 
         detailLabel.textColor = detailColor
         detailLabel.font = detailFont
+        detailLabel.numberOfLines = 0
         addSubview(detailLabel)
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false

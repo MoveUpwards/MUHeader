@@ -16,12 +16,34 @@ class ViewController: UIViewController {
 
     // MARK: Properties
     
-    /// The Label
-    lazy var header: MUHeader = {
+    /// Left align example
+    lazy var leftAlign: MUHeader = {
         let header = MUHeader()
         header.title = "My fancy title"
         header.titleColor = .orange
-        header.detail = "My multi-line detail text!"
+        header.detail = "My multi-line detail text! My multi-line detail text! My multi-line detail text! My multi-line detail text!"
+        header.detailColor = .black
+        return header
+    }()
+
+    /// Center align example
+    lazy var centerAlign: MUHeader = {
+        let header = MUHeader()
+        header.textAlignment = .center
+        header.title = "My fancy title"
+        header.titleColor = .orange
+        header.detail = "My multi-line detail text! My multi-line detail text! My multi-line detail text! My multi-line detail text!"
+        header.detailColor = .black
+        return header
+    }()
+
+    /// Right align example
+    lazy var rightAlign: MUHeader = {
+        let header = MUHeader()
+        header.textAlignment = .right
+        header.title = "My fancy title"
+        header.titleColor = .orange
+        header.detail = "My multi-line detail text! My multi-line detail text! My multi-line detail text! My multi-line detail text!"
         header.detailColor = .black
         return header
     }()
@@ -33,10 +55,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .white
-        view.addSubview(header)
+        view.addSubview(leftAlign)
+        view.addSubview(centerAlign)
+        view.addSubview(rightAlign)
 
-        header.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        header.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        leftAlign.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+        leftAlign.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
+        leftAlign.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+
+        centerAlign.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+        centerAlign.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
+        centerAlign.topAnchor.constraint(equalTo: leftAlign.bottomAnchor, constant: 40).isActive = true
+
+        rightAlign.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+        rightAlign.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
+        rightAlign.topAnchor.constraint(equalTo: centerAlign.bottomAnchor, constant: 40).isActive = true
     }
 
 }
