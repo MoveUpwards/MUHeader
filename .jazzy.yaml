@@ -1,0 +1,7 @@
+# MUHeader document generator jazzy settings
+
+copyright: Copyright 2019 Move Upwards
+author: Loïc Griffié
+xcodebuild_arguments: [-target, MUHeader-iOS, --min-acl internal]
+clean: true
+output: ./Documentation
