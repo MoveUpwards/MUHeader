@@ -88,6 +88,34 @@ header.detail = "My multi-line detail text!"
 header.detailColor = .black
 ```
 
+### UIAppearance styling
+
+Overall application styling
+
+```swift
+MUHeader.appearance().titleColor = .orange
+MUHeader.appearance().titleFont = .systemFont(ofSize: 24.0, weight: .bold)
+MUHeader.appearance().detailColor = .black
+MUHeader.appearance().detailFont = .systemFont(ofSize: 14.0, weight: .regular)
+MUHeader.appearance().spacing = 2
+MUHeader.appearance().textAlignment = .left
+```
+
+Specific parent class styling
+
+```swift
+for vc in [MyCustomClass.self] {
+   MUHeader.appearance(whenContainedInInstancesOf: [vc]).titleColor = .orange
+   MUHeader.appearance(whenContainedInInstancesOf: [vc]).titleFont = .systemFont(ofSize: 24.0, weight: .bold)
+   MUHeader.appearance(whenContainedInInstancesOf: [vc]).detailColor = .black
+   MUHeader.appearance(whenContainedInInstancesOf: [vc]).detailFont = .systemFont(ofSize: 14.0, weight: .regular)
+   MUHeader.appearance(whenContainedInInstancesOf: [vc]).spacing = 2
+   MUHeader.appearance(whenContainedInInstancesOf: [vc]).textAlignment = .left
+}
+
+
+```
+
 ### Available properties
 
 ```swift
