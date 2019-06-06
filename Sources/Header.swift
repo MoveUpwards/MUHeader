@@ -16,6 +16,20 @@ public struct Header : View {
     public var detailColor: Color = .secondary
     public var textAlignment: HAlignment = .leading
     
+    public init(title: String = "",
+                titleColor: Color = .primary,
+                spacing: Length = 8,
+                detail: String = "",
+                detailColor: Color = .secondary,
+                textAlignment: HAlignment = .leading) {
+        self.title = title
+        self.titleColor  = titleColor
+        self.spacing = spacing
+        self.detail = detail
+        self.detailColor = detailColor
+        self.textAlignment = textAlignment
+    }
+    
     public var body: some View {
         VStack(alignment: .leading, spacing: spacing) {
             Text(title)
