@@ -1,114 +1,47 @@
 //
 //  MUHeader.swift
-//  MUHeader
+//  MUHeader-iOS
 //
-//  Created by Loïc Griffié on 4 juin 2019.
+//  Created by Loïc GRIFFIE on 06/06/2019.
 //  Copyright © 2019 Move Upwards. All rights reserved.
 //
 
-// Include Foundation
-@_exported import Foundation
+import SwiftUI
 
-import UIKit
-import MUCore
-
-/// Class that define a title and a detail description.
-@IBDesignable
-open class MUHeader: MUNibView {
-    @IBOutlet private var titleLabel: UILabel!
-    @IBOutlet private var detailLabel: UILabel!
+struct MUHeader : View {
+    var title: String = ""
+    var titleColor: Color = .primary
+    var spacing: Length = 8
+    var detail: String = ""
+    var detailColor: Color = .secondary
+    var textAlignment: HAlignment = .leading
     
-    @IBOutlet private var labelsSpacing: NSLayoutConstraint!
-    
-    // MARK: - Title Label
-    
-    /// The current title.
-    @IBInspectable open var title: String = "" {
-        didSet {
-            titleLabel.text = title
+    var body: some View {
+        VStack(alignment: .leading, spacing: spacing) {
+            Text(title)
+                .fontWeight(.regular)
+                .foregroundColor(titleColor)
+                .font(.title)
+                .multilineTextAlignment(textAlignment)
+            Text(detail)
+                .fontWeight(.semibold)
+                .lineLimit(Int.max)
+                .foregroundColor(detailColor)
+                .font(.body)
+                .multilineTextAlignment(textAlignment)
         }
-    }
-    
-    /// The title’s font.
-    @objc open dynamic var titleFont: UIFont = .systemFont(ofSize: 34.0, weight: .regular) {
-        didSet {
-            titleLabel.font = titleFont
-        }
-    }
-    
-    /// The title’s text color.
-    @IBInspectable open dynamic var titleColor: UIColor = .black {
-        didSet {
-            titleLabel.textColor = titleColor
-        }
-    }
-    
-    // MARK: - Detail Label
-    
-    /// The current detail description.
-    @IBInspectable open var detail: String = "" {
-        didSet {
-            detailLabel.text = detail
-        }
-    }
-    
-    /// The detail’s font.
-    @objc open dynamic var detailFont: UIFont = .systemFont(ofSize: 14.0, weight: .semibold) {
-        didSet {
-            detailLabel.font = detailFont
-        }
-    }
-    
-    /// The detail’s text color.
-    @IBInspectable open dynamic var detailColor: UIColor = .black {
-        didSet {
-            detailLabel.textColor = detailColor
-        }
-    }
-    
-    // MARK: - Generic
-    
-    /// The text’s horizontal alignment.
-    @objc open dynamic var textAlignment: NSTextAlignment = .left {
-        didSet {
-            titleLabel.textAlignment = textAlignment
-            detailLabel.textAlignment = textAlignment
-        }
-    }
-    
-    /// Optional: The IBInspectable version of the text’s horizontal alignment.
-    @IBInspectable open var textAlignmentInt: Int {
-        get {
-            return textAlignment.rawValue
-        }
-        set {
-            textAlignment = NSTextAlignment(rawValue: newValue) ?? .left
-        }
-    }
-    
-    /// The text’s vertical spacing.
-    @IBInspectable open dynamic var spacing: CGFloat = 8.0 {
-        didSet {
-            labelsSpacing.constant = spacing
-        }
-    }
-    
-    /// The natural size for the receiving view, considering only properties of the view itself.
-    override open var intrinsicContentSize: CGSize {
-        return .zero
-    }
-    
-    /// Return the height the header will have if constraint with this width.
-    open func expectedHeight(for width: CGFloat) -> CGFloat {
-        let size = CGSize(width: width, height: .greatestFiniteMagnitude)
-        return titleLabel.sizeThatFits(size).height + spacing + detailLabel.sizeThatFits(size).height
-    }
-    
-    /// Return the size with a force sizeToFit (for unit tests only)
-    internal func debugSize() -> CGSize {
-        titleLabel.sizeToFit()
-        detailLabel.sizeToFit()
-        return CGSize(width: max(titleLabel.bounds.width, detailLabel.bounds.width),
-                      height: titleLabel.bounds.height + spacing + detailLabel.bounds.height)
     }
 }
+
+#if DEBUG
+struct MUHeader_Previews : PreviewProvider {
+    static var previews: some View {
+        HStack {
+            MUHeader(title: "My title",
+                     titleColor: .orange,
+                     detail: "My subtitle to shown in my custom header. My subtitle to shown in my custom header.",
+                     detailColor: .red)
+        }
+    }
+}
+#endif
