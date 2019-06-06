@@ -9,12 +9,12 @@
 import SwiftUI
 
 public struct Header : View {
-    public var title: String = ""
-    public var titleColor: Color = .primary
-    public var spacing: Length = 8
-    public var detail: String = ""
-    public var detailColor: Color = .secondary
-    public var textAlignment: HAlignment = .leading
+    let title: String
+    let titleColor: Color
+    let spacing: Length
+    let detail: String
+    let detailColor: Color
+    let textAlignment: HAlignment
     
     public init(title: String = "",
                 titleColor: Color = .primary,
