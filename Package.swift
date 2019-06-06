@@ -19,7 +19,7 @@ let package = Package(
     targets: [
         .target(
             name: "MUHeader",
-            dependencies: ["MUCore"],
+            dependencies: [],
             path: "Sources"
         ),
         .testTarget(
