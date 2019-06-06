@@ -1,6 +1,6 @@
 //
-//  MUHeader.swift
-//  MUHeader-iOS
+//  Header.swift
+//  Header-iOS
 //
 //  Created by Loïc GRIFFIE on 06/06/2019.
 //  Copyright © 2019 Move Upwards. All rights reserved.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct MUHeader : View {
+struct Header : View {
     var title: String = ""
     var titleColor: Color = .primary
     var spacing: Length = 8
@@ -34,10 +34,10 @@ struct MUHeader : View {
 }
 
 #if DEBUG
-struct MUHeader_Previews : PreviewProvider {
+struct Header_Previews : PreviewProvider {
     static var previews: some View {
         HStack {
-            MUHeader(title: "My title",
+            Header(title: "My title",
                      titleColor: .orange,
                      detail: "My subtitle to shown in my custom header. My subtitle to shown in my custom header.",
                      detailColor: .red)
