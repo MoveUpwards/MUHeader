@@ -8,15 +8,15 @@
 
 import SwiftUI
 
-struct Header : View {
-    var title: String = ""
-    var titleColor: Color = .primary
-    var spacing: Length = 8
-    var detail: String = ""
-    var detailColor: Color = .secondary
-    var textAlignment: HAlignment = .leading
+public struct Header : View {
+    public var title: String = ""
+    public var titleColor: Color = .primary
+    public var spacing: Length = 8
+    public var detail: String = ""
+    public var detailColor: Color = .secondary
+    public var textAlignment: HAlignment = .leading
     
-    var body: some View {
+    public var body: some View {
         VStack(alignment: .leading, spacing: spacing) {
             Text(title)
                 .fontWeight(.regular)
