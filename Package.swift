@@ -13,9 +13,7 @@ let package = Package(
             targets: ["MUHeader"]
         ),
     ],
-    dependencies: [
-        .package(url: "https://github.com/MoveUpwards/MUCore", from: "1.0.0")
-    ],
+    dependencies: [],
     targets: [
         .target(
             name: "MUHeader",
