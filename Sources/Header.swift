@@ -50,12 +50,10 @@ public struct Header : View {
 #if DEBUG
 struct Header_Previews : PreviewProvider {
     static var previews: some View {
-        HStack {
-            Header(title: "My title",
-                     titleColor: .orange,
-                     detail: "My subtitle to shown in my custom header. My subtitle to shown in my custom header.",
-                     detailColor: .red)
-        }
+        Header(title: "My title",
+               titleColor: .orange,
+               detail: "My subtitle to shown in my custom header. My subtitle to shown in my custom header.",
+               detailColor: .red)
     }
 }
 #endif
